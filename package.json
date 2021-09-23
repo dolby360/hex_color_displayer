@@ -1,0 +1,52 @@
+{
+  "name": "hex_color_displayer",
+  "version": "1.0.0",
+  "description": "Define chunks of data within a binary file with name and color",
+  "main": "./build/index.js",
+  "scripts": {
+    "test": "run_test",
+    "build": "webpack",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/dolby360/hex_color_displayer.git"
+  },
+  "author": "dolby360",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/dolby360/hex_color_displayer/issues"
+  },
+  "homepage": "https://github.com/dolby360/hex_color_displayer#readme",
+  "dependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@material-ui/core": "^4.12.3",
+    "babel-loader": "^8.2.2",
+    "buffer": "^6.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.6.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.4.0-alpha.35",
+    "@storybook/addon-essentials": "^6.4.0-alpha.35",
+    "@storybook/addon-links": "^6.4.0-alpha.35",
+    "@storybook/builder-webpack5": "^6.4.0-alpha.35",
+    "@storybook/manager-webpack5": "^6.4.0-alpha.35",
+    "@storybook/react": "^6.4.0-alpha.35",
+    "webpack-cli": "^4.8.0"
+  },
+  "browser": {
+    "crypto": false,
+    "fs": false,
+    "path": false,
+    "os": false,
+    "net": false,
+    "stream": false,
+    "tls": false
+  }
+}
