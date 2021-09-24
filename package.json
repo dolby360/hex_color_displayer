@@ -1,6 +1,6 @@
 {
   "name": "hex_color_displayer",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Define chunks of data within a binary file with name and color",
   "main": "./build/index.js",
   "scripts": {
