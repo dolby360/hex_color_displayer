@@ -12,7 +12,7 @@ const data_example = [
         "start": 0,
         "end": 13,
         "name": "Header",
-        "color": "",
+        "color": "", // Color feature has not yet implemented
         "sublist": []
     },
 ]

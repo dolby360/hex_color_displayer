@@ -1,4 +1,4 @@
-import HexColorDisplay from '../components/hex_color_display';
+import HexColorDisplay from '../index.js';
 import React,  { useState, useEffect } from 'react';
 import {storiesOf} from '@storybook/react'
 const stories = storiesOf('test', module);

@@ -1,11 +1,12 @@
 const path = require('path');
 
 module.exports = {
-    mode : "production",
-    entry: path.join(__dirname, "src", "index.js"),
+    mode: "production",
+    entry: "./src/index.js",//path.join(__dirname, "src", "index.js"),
     output: {
         path: path.resolve(__dirname, "build"),
         filename : "index.js",
+        libraryTarget: "commonjs2"
     },
     module: {
         rules: [
@@ -21,8 +22,5 @@ module.exports = {
         },
             { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] }
         ]
-    },
-    externals: {
-        react : "react"
     }
 }
