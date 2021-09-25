@@ -22,5 +22,12 @@ module.exports = {
         },
             { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] }
         ]
-    }
+    },
+    externals: {
+        "react": "commonjs react",
+        "react-dom": "commonjs react-dom",
+        // "react-is" : "commonjs react-is",
+        // "prop-types": "commonjs prop-types",
+        // "hoist-non-react-statics"  : "commonjs prop-types"
+     }
 }
