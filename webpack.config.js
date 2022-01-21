@@ -25,9 +25,6 @@ module.exports = {
     },
     externals: {
         "react": "commonjs react",
-        "react-dom": "commonjs react-dom",
-        // "react-is" : "commonjs react-is",
-        // "prop-types": "commonjs prop-types",
-        // "hoist-non-react-statics"  : "commonjs prop-types"
+        "react-dom": "commonjs react-dom"
      }
 }

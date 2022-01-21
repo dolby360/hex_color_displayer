@@ -2,7 +2,7 @@
 
 ![Gif example](https://github.com/dolby360/hex_color_displayer/blob/master/assets/Capture.PNG?raw=true)
 
-## Eample:
+## Example:
 ```js
 var React = require('react')
 var HexViewer = require('hex-color-displayer');

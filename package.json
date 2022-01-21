@@ -14,7 +14,7 @@
     "url": "git+ssh://git@github.com/dolby360/hex_color_displayer.git"
   },
   "author": "dolby360",
-  "license": "WTFPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dolby360/hex_color_displayer/issues"
   },
