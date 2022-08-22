@@ -2,10 +2,10 @@ import React from 'react';
 import './components/hex.css'
 import {Item} from './components/item'
 
-var Row = (listOfItems,ascii_array,index) =>{
-  var pad = "000000";
-  var hexString = index.toString(16);
-  var heading = ''+ hexString;
+const Row = (listOfItems,ascii_array,index) =>{
+  const pad = "000000";
+  const hexString = index.toString(16);
+  const heading = ''+ hexString;
   heading = pad.substring(0, pad.length - heading.length) + heading;
   heading += ":";
   return (
@@ -17,9 +17,9 @@ var Row = (listOfItems,ascii_array,index) =>{
   );
 }
 
-var title = () =>{
-  var list = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'] 
-  const listItems = list.map((item) =>
+const title = () =>{
+  const list = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'] 
+  let listItems = list.map((item) =>
       <li className="header_item_disabled">{item}</li>
   );
   return(
@@ -68,7 +68,7 @@ class HexColorDisplay extends React.Component {
     updateItems = (index, gid) => {
         this.hex_items_list = Array.from(this.save_hex_items_list);
         this.ascii_items_list = Array.from(this.save_ascii_items_list);
-        var i = index;
+        let i = index;
         for( ; i > 0; i--){
             if(this.hex_items_list[i].props.gId !== gid){
                 break;
@@ -205,9 +205,9 @@ class HexColorDisplay extends React.Component {
     }
 
     componentDidMount = () => {
-        var buffer = [];
-		var bytes = this.props.bin.length;
-		var i = 0;
+        let buffer = [];
+		let bytes = this.props.bin.length;
+		let i = 0;
         for (i = 0; i < bytes; i++) {
             buffer.push(this.props.bin[i]);
         }
