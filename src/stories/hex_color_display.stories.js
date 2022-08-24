@@ -3,7 +3,7 @@ import React,  { useState, useEffect } from 'react';
 import {storiesOf} from '@storybook/react'
 const stories = storiesOf('test', module);
 
-const data_example = [
+const dataExample = [
 	{
 		"start": 0,
 		"end": 13,
@@ -82,7 +82,7 @@ stories.add('App', () => {
 		let raw = new Uint8Array(e.target.result );
 		setView(
 			<HexColorDisplay 
-				offsets={data_example}
+				offsets={dataExample}
 				bin={raw}
 			/>
 		)
