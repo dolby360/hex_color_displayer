@@ -2,8 +2,8 @@ import React from 'react';
 import './hex.css'
 import Tooltip from '@material-ui/core/Tooltip';
 
-const get_style = (style,props) => {
-    let part_of_the_group_style = {
+const getStyle = (style,props) => {
+    let parthOfTheGroupStyle = {
         display : 'inline-block',
         margin : 0, padding : 0,
         width: "1.5em", textAlign : 'center',
@@ -13,19 +13,19 @@ const get_style = (style,props) => {
     switch (style) {
         case 'item_part_of_group':
             if(props.color !== ''){
-                part_of_the_group_style.backgroundColor = props.color;
+                parthOfTheGroupStyle.backgroundColor = props.color;
             }
-            return part_of_the_group_style;
+            return parthOfTheGroupStyle;
         case 'item_active':
-            part_of_the_group_style.font_weight = 'bold';
-            part_of_the_group_style.color = 'white';
-            part_of_the_group_style.backgroundColor = 'green';
-            return part_of_the_group_style;
+            parthOfTheGroupStyle.font_weight = 'bold';
+            parthOfTheGroupStyle.color = 'white';
+            parthOfTheGroupStyle.backgroundColor = 'green';
+            return parthOfTheGroupStyle;
         case 'item_disabled':
         default:
-            part_of_the_group_style.backgroundColor = '';
-            part_of_the_group_style.color = '';
-            return part_of_the_group_style;
+            parthOfTheGroupStyle.backgroundColor = '';
+            parthOfTheGroupStyle.color = '';
+            return parthOfTheGroupStyle;
     }
 }
 
@@ -36,7 +36,7 @@ const mouseEvent = (props) =>{
 export const Item = (props) => {
     return(
         <Tooltip title={props.data}>
-            <li style={get_style(props.myStyle,props)} 
+            <li style={getStyle(props.myStyle,props)}
                 onMouseOver={ () => mouseEvent(props) } 
                 >
                 {props.byteString}
