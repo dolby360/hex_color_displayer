@@ -1,6 +1,6 @@
 import React from 'react';
 import './hex.css'
-import Tooltip from 'rc-tooltip';
+import Tippy from '@tippyjs/react';
 
 const getStyle = (style,props) => {
     let parthOfTheGroupStyle = {
@@ -35,12 +35,12 @@ const mouseEvent = (props) =>{
 
 export const Item = (props) => {
     return(
-        <Tooltip overlay={props.data}>
+        <Tippy content={<p className='tool_top_txt'>{props.data}</p>}>
             <li style={getStyle(props.myStyle,props)}
-                onMouseOver={ () => mouseEvent(props) } 
-                >
+            onMouseOver={ () => mouseEvent(props) } 
+            >
                 {props.byteString}
             </li>
-        </Tooltip>
+        </Tippy>
     )
 }

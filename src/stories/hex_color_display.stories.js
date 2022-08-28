@@ -1,6 +1,6 @@
 import HexColorDisplay from '../index.js';
-import React,  { useState, useEffect } from 'react';
-import {storiesOf} from '@storybook/react'
+import React, { useState, useEffect } from 'react';
+import { storiesOf } from '@storybook/react'
 const stories = storiesOf('test', module);
 
 const dataExample = [
@@ -68,10 +68,19 @@ const dataExample = [
 		"color": "",
 		"sublist": []
 	},
+	{
+		"start": 20,
+		"end": 32,
+		"name": "section 2",
+		"color": "",
+		"sublist": []
+	},
 ]
 
 stories.add('App', () => {
-    const raw = new Uint8Array(97,98,99,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20);
-    const view = <HexColorDisplay  offsets={dataExample} bin={raw}/>
-    return (view);
+	const raw = [97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+		107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+		118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128]
+	const view = <HexColorDisplay offsets={dataExample} bin={raw} />
+	return (view);
 });
