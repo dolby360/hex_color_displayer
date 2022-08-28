@@ -1,27 +1,27 @@
-
 .heading {
     width: 4.5em;
     display: inline-block;
 }
 
-.hex_row{
+.hex_row {
     display: inline-block;
     margin-right: 1em;
 }
 
 .row {
     font-family: monospace;
-    font-size: 15px;
-    height: 25px;
-    line-height: 25px; 
-    display:block;
-    margin-right: 25px;
+    font-size: 0.9375em;
+    height: 1.5625em;
+    line-height: 1.5625em;
+    display: block;
+    margin-right: 1.5625em;
     flex-direction: row;
 }
 
 .header_item_disabled {
     display: inline-block;
-    margin:0;padding:0;
+    margin: 0;
+    padding: 0;
     width: 1.55em;
-    text-align:center;
+    text-align: center;
 }
