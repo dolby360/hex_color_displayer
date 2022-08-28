@@ -1,6 +1,6 @@
 # Hex Color Display
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 NPM package to help you read a binary file with a structured format. On hover mouse the block is highlighted and a tooltip is popped up to explain each section.
@@ -42,6 +42,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/aradbivas"><img src="https://avatars.githubusercontent.com/u/41302200?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arad Bivas</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=aradbivas" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/vov62"><img src="https://avatars.githubusercontent.com/u/71568364?v=4?s=100" width="100px;" alt=""/><br /><sub><b>avi vovgen</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=vov62" title="Code">💻</a></td>
   </tr>
 </table>
 
