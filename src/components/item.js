@@ -1,6 +1,6 @@
 import React from 'react';
 import './hex.css'
-import Tooltip from '@material-ui/core/Tooltip';
+import Tooltip from 'rc-tooltip';
 
 const getStyle = (style,props) => {
     let parthOfTheGroupStyle = {
@@ -35,7 +35,7 @@ const mouseEvent = (props) =>{
 
 export const Item = (props) => {
     return(
-        <Tooltip title={props.data}>
+        <Tooltip overlay={props.data}>
             <li style={getStyle(props.myStyle,props)}
                 onMouseOver={ () => mouseEvent(props) } 
                 >
