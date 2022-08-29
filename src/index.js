@@ -176,6 +176,8 @@ class HexColorDisplay extends React.Component {
         }
     }
 
+    // data is json struct that folds all offsets data.
+    // buffer is the binary buffer.
     setItems = (data, buffer) => {
         let gid = 0;
         for(let i = 0; i < data.length; i++){

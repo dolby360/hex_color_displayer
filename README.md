@@ -9,8 +9,8 @@ NPM package to help you read a binary file with a structured format. On hover mo
 
 ## Example:
 ```js
-var React = require('react')
-var HexViewer = require('hex-color-displayer');
+import React from 'react';
+import HexColorDisplay from 'hex-color-displayer'
 
 const data_example = [
     {
@@ -20,17 +20,25 @@ const data_example = [
         "color": "", // Color feature has not yet implemented
         "sublist": []
     },
+    {
+        "start": 13,
+        "end": 32,
+        "name": "data",
+        "color": "", 
+        "sublist": []
+    },
 ]
-let raw = new Uint8Array(54,22,3,6,23,6,1,2,3,4,5,6,7,8,9,10,11,12,13);
+
+const raw = [97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+		107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+		118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128]
 React.render(<HexColorDisplay 
         offsets={data_example} bin={raw} />, document.body);
 ```
 
 
 ### Storybook example
-In storybook I added an example of GIF image, I used the documentation below for the offset data.
-Gif 89a binary structure:
-https://www.w3.org/Graphics/GIF/spec-gif89a.txt
+In storybook I added an example you can use to see how it works and debug this package.
 
 ## Contributors ✨
 
