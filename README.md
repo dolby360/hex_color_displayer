@@ -5,7 +5,9 @@
 
 NPM package to help you read a binary file with a structured format. On hover mouse the block is highlighted and a tooltip is popped up to explain each section.
 
-![Gif example](https://github.com/dolby360/hex_color_displayer/blob/master/assets/Capture.PNG?raw=true)
+<!-- ![Gif example](https://github.com/dolby360/hex_color_displayer/blob/master/assets/Capture.PNG?raw=true) -->
+
+<img src="./assets/example.gif">
 
 ## Example:
 ```js
