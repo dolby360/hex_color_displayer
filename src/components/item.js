@@ -1,6 +1,6 @@
 import React from 'react';
 import './hex.css'
-import Tooltip from '@material-ui/core/Tooltip';
+import Tippy from '@tippyjs/react';
 
 const getStyle = (style,props) => {
     let parthOfTheGroupStyle = {
@@ -35,12 +35,12 @@ const mouseEvent = (props) =>{
 
 export const Item = (props) => {
     return(
-        <Tooltip title={props.data}>
-            <li style={getStyle(props.myStyle,props)}
-                onMouseOver={ () => mouseEvent(props) } 
-                >
+        <Tippy content={<p className='tool_top_txt'>{props.data}</p>}>
+            <li key={props.indexInList} style={getStyle(props.myStyle,props)}
+            onMouseOver={ () => mouseEvent(props) } 
+            >
                 {props.byteString}
             </li>
-        </Tooltip>
+        </Tippy>
     )
 }

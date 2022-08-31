@@ -1,96 +1,95 @@
 import HexColorDisplay from '../index.js';
-import React,  { useState, useEffect } from 'react';
-import {storiesOf} from '@storybook/react'
+import React, { useState, useEffect } from 'react';
+import { storiesOf } from '@storybook/react'
 const stories = storiesOf('test', module);
 
 const dataExample = [
 	{
 		"start": 0,
 		"end": 13,
-		"name": "Header and color table information",
+		"name": "some fency header",
 		"color": "",
 		"sublist": [
 			{
 				"start": 0,
 				"end": 3,
-				"name": "Header Signature (always GIF)",
+				"name": "sub header 1",
 				"color": "",
 				"sublist": []
 			},
 			{
 				"start": 3,
 				"end": 6,
-				"name": "GIF format version(87a or 89a)",
+				"name": "sub header 2",
 				"color": "",
 				"sublist": []
 			},
 			{
 				"start": 6,
 				"end": 8,
-				"name": "Width of Display Screen in Pixels",
+				"name": "sub header 3",
 				"color": "",
 				"sublist": []
 			},
 			{
 				"start": 8,
 				"end": 10,
-				"name": "Height of Display Screen in Pixels",
+				"name": "sub header 4",
 				"color": "",
 				"sublist": []
 			},
 			{
 				"start": 10,
 				"end": 11,
-				"name": "Screen and Color Map Information",
+				"name": "sub header 5",
 				"color": "",
 				"sublist": []
 			},
 			{
 				"start": 11,
 				"end": 12,
-				"name": "Background Color Index",
+				"name": "sub header 6",
 				"color": "",
 				"sublist": []
 			},
 			{
 				"start": 12,
 				"end": 13,
-				"name": "Pixel Aspect Ratio",
+				"name": "sub header 7",
 				"color": "",
 				"sublist": []
 			},
 		],
-	}
+	},
+	{
+		"start": 13,
+		"end": 20,
+		"name": "section 2",
+		"color": "",
+		"sublist": []
+	},
+	{
+		"start": 20,
+		"end": 32,
+		"name": "section 2",
+		"color": "",
+		"sublist": []
+	},
 ]
 
 stories.add('App', () => {
-
-	const getButton = () => {
-		return(    
-			<div>
-				<div>
-					Upload bin file
-				</div>
-				<input type="file" onChange={(e)=>onFilesSelected(e)}/>
-			</div>
-		)
-	}
-	const [view, setView] = useState(getButton);
-	let fileReader = new FileReader()
-
-	const setBin = (e) => {
-		let raw = new Uint8Array(e.target.result );
-		setView(
-			<HexColorDisplay 
-				offsets={dataExample}
-				bin={raw}
-			/>
-		)
-	}
-
-	const onFilesSelected = (e) => {
-		fileReader.onload = setBin
-		fileReader.readAsArrayBuffer(e.target.files[0])
-	}
-    return (view);
+	const raw = [97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+		107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+		118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128,
+		97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+		107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+		118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128,
+		97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+		107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+		118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128,
+		97, 98, 99, 100, 101, 102, 103, 104, 105, 106,
+		107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117,
+		118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128]
+	const view = <HexColorDisplay offsets={dataExample} bin={raw} />
+	return (view);
 });

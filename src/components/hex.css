@@ -1,16 +1,14 @@
-
 .heading {
     width: 4.5em;
     display: inline-block;
 }
 
-.hex_row{
+.hex_row {
     display: inline-block;
     margin-right: 1em;
 }
 
 .row {
-    font-family: monospace;
     font-size: 15px;
     height: 25px;
     line-height: 25px; 
@@ -21,7 +19,17 @@
 
 .header_item_disabled {
     display: inline-block;
-    margin:0;padding:0;
+    margin: 0;
+    padding: 0;
     width: 1.55em;
-    text-align:center;
+    text-align: center;
+}
+
+.tool_top_txt {
+    font-family: "Times New Roman", Times, serif;
+    color: white;
+    background-color: green;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 25px;
 }
