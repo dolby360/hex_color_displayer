@@ -1,37 +1,37 @@
 import React from 'react';
 import './components/hex.css'
 
-import {Item} from './components/item'
+import { Item } from './components/item'
 
 
-const Row = (listOfItems,ascii_array,index) =>{
-  const pad = "000000";
-  const hexString = index.toString(16);
-  const heading = ''+ hexString;
+const Row = (listOfItems, ascii_array, index) => {
+    const pad = "000000";
+    const hexString = index.toString(16);
+    let heading = '' + hexString;
 
-  heading = pad.substring(0, pad.length - heading.length) + heading;
-  heading += ":";
-  return (
-      <div className="row">
-          <div className="heading"> {heading} </div>
-          <div className="hex_row">{listOfItems}</div>
-          <div className="hex_row">{ascii_array}</div>
-      </div>
-  );
+    heading = pad.substring(0, pad.length - heading.length) + heading;
+    heading += ":";
+    return (
+        <div className="row">
+            <div className="heading"> {heading} </div>
+            <div className="hex_row">{listOfItems}</div>
+            <div className="hex_row">{ascii_array}</div>
+        </div>
+    );
 }
 
-const title = () =>{
-  const list = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'] 
-  let listItems = list.map((item) =>
-      <li className="header_item_disabled">{item}</li>
-  );
-  return(
-      <div className="row">
-          <div style={{ width: "4em", display: "inline-block"}}>Address:</div>
-          <div className="hex_row">{listItems}</div>
-          <div className="heading">Dump</div>
-      </div>  
-  );
+const title = () => {
+    const list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
+    let listItems = list.map((item) =>
+        <li className="header_item_disabled">{item}</li>
+    );
+    return (
+        <div className="row">
+            <div style={{ width: "4em", display: "inline-block" }}>Address:</div>
+            <div className="hex_row">{listItems}</div>
+            <div className="heading">Dump</div>
+        </div>
+    );
 }
 
 class HexColorDisplay extends React.Component {
@@ -70,12 +70,12 @@ class HexColorDisplay extends React.Component {
     // used as a callback in item to update all other items
     updateItems = (index, gid) => {
 
-        this.hex_items_list = Array.from(this.save_hex_items_list);
-        this.ascii_items_list = Array.from(this.save_ascii_items_list);
+        this.hexItemsList = Array.from(this.saveHexItemsList);
+        this.asciiItemsList = Array.from(this.saveAsciiItemsList);
         let i = index;
 
-        for( ; i > 0; i--){
-            if(this.hexItemsList[i].props.gId !== gid){
+        for (; i > 0; i--) {
+            if (this.hexItemsList[i].props.gId !== gid) {
 
                 break;
             }
@@ -118,7 +118,7 @@ class HexColorDisplay extends React.Component {
             }
             let hexArray = this.hexItemsList.slice(startIndex, startIndex + 16)
             let asciiArray = this.asciiItemsList.slice(startIndex, startIndex + 16)
-            rowState[rowNumberToUpdate] = row(hexArray, asciiArray, startIndex)
+            rowState[rowNumberToUpdate] = Row(hexArray, asciiArray, startIndex)
         }
         this.setState({
             rows: rowState
@@ -137,7 +137,7 @@ class HexColorDisplay extends React.Component {
                 hexArray.push(item);
                 asciiArray.push(item);
             }
-            arr.push(row(hexArray, asciiArray, i))
+            arr.push(Row(hexArray, asciiArray, i))
         }
         this.setState({
             rows: arr,
@@ -216,8 +216,8 @@ class HexColorDisplay extends React.Component {
     componentDidMount = () => {
 
         let buffer = [];
-		let bytes = this.props.bin.length;
-		let i = 0;
+        let bytes = this.props.bin.length;
+        let i = 0;
 
         for (i = 0; i < bytes; i++) {
             buffer.push(this.props.bin[i]);
