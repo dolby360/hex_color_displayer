@@ -38,9 +38,11 @@ React.render(<HexColorDisplay
         offsets={data_example} bin={raw} />, document.body);
 ```
 
-
 ### Storybook example
 In storybook I added an example you can use to see how it works and debug this package.
+
+## Contributing
+The contributing guidelines are [here](.github/CONTRIBUTING.md)
 
 ## Contributors ✨
 
