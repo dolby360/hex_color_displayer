@@ -12,7 +12,7 @@ NPM package to help you read a binary file with a structured format. On hover mo
 ## Example:
 ```js
 import React from 'react';
-import HexColorDisplay from 'hex-color-displayer'
+import HexColorDisplay from 'hex_color_displayer'
 
 const data_example = [
     {
