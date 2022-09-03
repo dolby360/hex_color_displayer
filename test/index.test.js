@@ -1,6 +1,6 @@
-import React from 'react'
-import HexColorDisplay from '../src/index'
-import {render} from '@testing-library/react'
+import React from 'react';
+import {render} from '@testing-library/react';
+import HexColorDisplay from '../src/index';
 
 // ====================================
 // Test Fixtures
