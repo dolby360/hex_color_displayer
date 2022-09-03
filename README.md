@@ -3,6 +3,8 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+[![pr](https://github.com/dolby360/hex_color_displayer/actions/workflows/pr.yml/badge.svg)](https://github.com/dolby360/hex_color_displayer/actions/workflows/pr.yml)
+
 NPM package to help you read a binary file with a structured format. On hover mouse the block is highlighted and a tooltip is popped up to explain each section.
 
 <!-- ![Gif example](https://github.com/dolby360/hex_color_displayer/blob/master/assets/Capture.PNG?raw=true) -->
