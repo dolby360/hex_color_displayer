@@ -36,14 +36,17 @@ const mouseEvent = (props) => {
 };
 
 export default function Item(props) {
+  const {
+    data, myStyle, byteString, indexInList,
+  } = props;
   return (
-    <Tippy content={<p className="tool_top_txt">{props.data}</p>}>
+    <Tippy content={<p className="tool_top_txt">{data}</p>}>
       <li
-        key={props.indexInList}
-        style={getStyle(props.myStyle, props)}
+        key={indexInList}
+        style={getStyle(myStyle, props)}
         onMouseOver={() => mouseEvent(props)}
       >
-        {props.byteString}
+        {byteString}
       </li>
     </Tippy>
   );
