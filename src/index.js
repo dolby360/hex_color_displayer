@@ -115,6 +115,7 @@ class HexColorDisplay extends React.Component {
             let asciiArray = this.asciiItemsList.slice(startIndex, startIndex + 16)
             rowState[rowNumberToUpdate] = row(hexArray, asciiArray, startIndex)
         }
+
         this.setState({
             rows: rowState
         })
@@ -207,12 +208,12 @@ class HexColorDisplay extends React.Component {
                 this.setChunk(
                     buffer.slice(item.start, item.sublist[0].start),
                     item.name, startIndex, gid);
-                for (let k = 0; k < item.sublist.length; k++) {//for each
+                item.sublist.forEach(element => {
                     this.setChunk(
-                        buffer.slice(item.sublist[k].start, item.sublist[k].end),
-                        item.sublist[k].name, startIndex, gid);
-                    startIndex += item.sublist[k].end;
-                }
+                        buffer.slice(element.start, element.end),
+                        element.name, startIndex, gid);
+                    startIndex += element.end;
+                });
             } else {
                 this.setChunk(
                     buffer.slice(item.start, item.end),
