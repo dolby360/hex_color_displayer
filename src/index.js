@@ -201,22 +201,22 @@ class HexColorDisplay extends React.Component {
         //     }
         //     gid++;
         // }
-        data.forEach(element => {
-            let startIndex = element.start;
-            if (element.sublist.length > 0) {
+        data.forEach(item => {
+            let startIndex = item.start;
+            if (item.sublist.length > 0) {
                 this.setChunk(
-                    buffer.slice(element.start, element.sublist[0].start),
-                    element.name, startIndex, gid);
-                for (let k = 0; k < element.sublist.length; k++) {//for each
+                    buffer.slice(item.start, item.sublist[0].start),
+                    item.name, startIndex, gid);
+                for (let k = 0; k < item.sublist.length; k++) {//for each
                     this.setChunk(
-                        buffer.slice(element.sublist[k].start, element.sublist[k].end),
-                        element.sublist[k].name, startIndex, gid);
-                    startIndex += element.sublist[k].end;
+                        buffer.slice(item.sublist[k].start, item.sublist[k].end),
+                        item.sublist[k].name, startIndex, gid);
+                    startIndex += item.sublist[k].end;
                 }
             } else {
                 this.setChunk(
-                    buffer.slice(element.start, element.end),
-                    element.name, startIndex, gid);
+                    buffer.slice(item.start, item.end),
+                    item.name, startIndex, gid);
             }
             gid++;
         });
@@ -231,9 +231,12 @@ class HexColorDisplay extends React.Component {
         var bytes = this.props.bin.length;
         var i = 0;
         
-        for (i = 0; i < bytes; i++) {
-            buffer.push(this.props.bin[i]);
-        }
+        // for (i = 0; i < bytes; i++) {//forEach?
+        //     buffer.push(this.props.bin[i]);
+        // }
+        this.props.bin.forEach(item => {
+            buffer.push(item)
+        })
         this.setItems(this.props.offsets, buffer);
         this.splitItemsList();
         this.initializationFinished = true;
