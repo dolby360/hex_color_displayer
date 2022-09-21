@@ -104,7 +104,7 @@ class HexColorDisplay extends React.Component {
         let rowNumber = Math.floor(startIndexToUpdate / 16);
         let rowState = this.state.rows;
         let resoluton = 100;
-        for (let i = 0; i < resoluton; i++) {//every
+        for (let i = 0; i < resoluton; i++) {//make a map function and use it on hexArray and asciiArray
             let rowNumberToUpdate = ((rowNumber <= (resoluton / 2))
                 ? i : (rowNumber - ((resoluton / 2)) + i));
             let startIndex = (rowNumberToUpdate * 16);
@@ -182,26 +182,44 @@ class HexColorDisplay extends React.Component {
     // buffer is the binary buffer.
     setItems = (data, buffer) => {
         let gid = 0;
-        for (let i = 0; i < data.length; i++) {//for each
-            let startIndex = data[i].start;
-
-            if (data[i].sublist.length > 0) {
+        // for (let i = 0; i < data.length; i++) {//for each
+        //     let startIndex = data[i].start;
+        //     if (data[i].sublist.length > 0) {
+        //         this.setChunk(
+        //             buffer.slice(data[i].start, data[i].sublist[0].start),
+        //             data[i].name, startIndex, gid);
+        //         for (let k = 0; k < data[i].sublist.length; k++) {//for each
+        //             this.setChunk(
+        //                 buffer.slice(data[i].sublist[k].start, data[i].sublist[k].end),
+        //                 data[i].sublist[k].name, startIndex, gid);
+        //             startIndex += data[i].sublist[k].end;
+        //         }
+        //     } else {
+        //         this.setChunk(
+        //             buffer.slice(data[i].start, data[i].end),
+        //             data[i].name, startIndex, gid);
+        //     }
+        //     gid++;
+        // }
+        data.forEach(element => {
+            let startIndex = element.start;
+            if (element.sublist.length > 0) {
                 this.setChunk(
-                    buffer.slice(data[i].start, data[i].sublist[0].start),
-                    data[i].name, startIndex, gid);
-                for (let k = 0; k < data[i].sublist.length; k++) {//for each
+                    buffer.slice(element.start, element.sublist[0].start),
+                    element.name, startIndex, gid);
+                for (let k = 0; k < element.sublist.length; k++) {//for each
                     this.setChunk(
-                        buffer.slice(data[i].sublist[k].start, data[i].sublist[k].end),
-                        data[i].sublist[k].name, startIndex, gid);
-                    startIndex += data[i].sublist[k].end;
+                        buffer.slice(element.sublist[k].start, element.sublist[k].end),
+                        element.sublist[k].name, startIndex, gid);
+                    startIndex += element.sublist[k].end;
                 }
             } else {
                 this.setChunk(
-                    buffer.slice(data[i].start, data[i].end),
-                    data[i].name, startIndex, gid);
+                    buffer.slice(element.start, element.end),
+                    element.name, startIndex, gid);
             }
             gid++;
-        }
+        });
         let endOfData = data[data.length - 1].end;
         this.setChunk(
             buffer.slice(endOfData, buffer.length),
@@ -213,7 +231,7 @@ class HexColorDisplay extends React.Component {
         var bytes = this.props.bin.length;
         var i = 0;
         
-        for (i = 0; i < bytes; i++) {//foreach
+        for (i = 0; i < bytes; i++) {
             buffer.push(this.props.bin[i]);
         }
         this.setItems(this.props.offsets, buffer);
