@@ -27,6 +27,8 @@
     "@tippyjs/react": "^4.2.6",
     "babel-loader": "^8.2.2",
     "buffer": "^6.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.6.0"
   },
