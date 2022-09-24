@@ -1,6 +1,6 @@
 # Hex Color Display
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![pr](https://github.com/dolby360/hex_color_displayer/actions/workflows/pr.yml/badge.svg)](https://github.com/dolby360/hex_color_displayer/actions/workflows/pr.yml)
@@ -61,6 +61,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center"><a href="https://github.com/TomDamri1"><img src="https://avatars.githubusercontent.com/u/44465079?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=TomDamri1" title="Code">💻</a></td>
       <td align="center"><a href="https://www.linkedin.com/in/tamir-abutbul-10a695178/"><img src="https://avatars.githubusercontent.com/u/34707669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tamir Abutbul</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=Tamir198" title="Code">💻</a></td>
       <td align="center"><a href="askorutin26@gmail.com"><img src="https://avatars.githubusercontent.com/u/66885436?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Artem Elgadzhiev</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=askorutin26" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/EladMotzny"><img src="https://avatars.githubusercontent.com/u/33173449?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Elad Motzny</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=EladMotzny" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
