@@ -68,16 +68,15 @@ class HexColorDisplay extends React.Component {
     updateItems = (index, gid) => {
         this.hexItemsList = Array.from(this.saveHexItemsList);
         this.asciiItemsList = Array.from(this.saveAsciiItemsList);
-        var i = index;
+        let startIndexToUpdate = index; // to use later when updating rowState
         this.hexItemsList.slice(0, index).reverse().every(item => {
              if(item.props.gId !== gid){
                 return false;
              }
-             i--;
+             startIndexToUpdate--;
              return true;
         });
 
-        let startIndexToUpdate = i; // to use later when updating rowState
         let groupFound = false;
         let style = 'item_disabled'
         this.hexItemsList.every((item, i) => {
