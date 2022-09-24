@@ -1,7 +1,9 @@
 # Hex Color Display
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
+[![pr](https://github.com/dolby360/hex_color_displayer/actions/workflows/pr.yml/badge.svg)](https://github.com/dolby360/hex_color_displayer/actions/workflows/pr.yml)
 
 NPM package to help you read a binary file with a structured format. On hover mouse the block is highlighted and a tooltip is popped up to explain each section.
 
@@ -12,7 +14,7 @@ NPM package to help you read a binary file with a structured format. On hover mo
 ## Example:
 ```js
 import React from 'react';
-import HexColorDisplay from 'hex-color-displayer'
+import HexColorDisplay from 'hex_color_displayer'
 
 const data_example = [
     {
@@ -38,9 +40,11 @@ React.render(<HexColorDisplay
         offsets={data_example} bin={raw} />, document.body);
 ```
 
-
 ### Storybook example
 In storybook I added an example you can use to see how it works and debug this package.
+
+## Contributing
+The contributing guidelines are [here](.github/CONTRIBUTING.md)
 
 ## Contributors ✨
 
@@ -50,11 +54,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/aradbivas"><img src="https://avatars.githubusercontent.com/u/41302200?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arad Bivas</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=aradbivas" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/vov62"><img src="https://avatars.githubusercontent.com/u/71568364?v=4?s=100" width="100px;" alt=""/><br /><sub><b>avi vovgen</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=vov62" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/TomDamri1"><img src="https://avatars.githubusercontent.com/u/44465079?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=TomDamri1" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/aradbivas"><img src="https://avatars.githubusercontent.com/u/41302200?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arad Bivas</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=aradbivas" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/vov62"><img src="https://avatars.githubusercontent.com/u/71568364?v=4?s=100" width="100px;" alt=""/><br /><sub><b>avi vovgen</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=vov62" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/TomDamri1"><img src="https://avatars.githubusercontent.com/u/44465079?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tom</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=TomDamri1" title="Code">💻</a></td>
+      <td align="center"><a href="https://www.linkedin.com/in/tamir-abutbul-10a695178/"><img src="https://avatars.githubusercontent.com/u/34707669?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tamir Abutbul</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=Tamir198" title="Code">💻</a></td>
+      <td align="center"><a href="askorutin26@gmail.com"><img src="https://avatars.githubusercontent.com/u/66885436?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Artem Elgadzhiev</b></sub></a><br /><a href="https://github.com/dolby360/hex_color_displayer/commits?author=askorutin26" title="Code">💻</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->

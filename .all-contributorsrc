@@ -31,6 +31,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Tamir198",
+      "name": "Tamir Abutbul",
+      "avatar_url": "https://avatars.githubusercontent.com/u/34707669?v=4",
+      "profile": "https://www.linkedin.com/in/tamir-abutbul-10a695178/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "askorutin26",
+      "name": "Artem Elgadzhiev",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66885436?v=4",
+      "profile": "askorutin26@gmail.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
