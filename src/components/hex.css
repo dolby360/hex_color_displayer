@@ -11,8 +11,8 @@
 .row {
     font-size: 15px;
     height: 25px;
-    line-height: 25px; 
-    display:block;
+    line-height: 25px;
+    display: block;
     margin-right: 25px;
     flex-direction: row;
 }
