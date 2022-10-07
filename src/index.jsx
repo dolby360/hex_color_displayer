@@ -56,8 +56,8 @@ class HexColorDisplay extends React.Component {
   componentDidMount() {
     const buffer = [];
 
-    this.props.bin.forEach(item => {
-      buffer.push(item)
+    this.props.bin.forEach((item) => {
+      buffer.push(item);
     });
     this.setItems(this.props.offsets, buffer);
     this.splitItemsList();
@@ -91,29 +91,29 @@ class HexColorDisplay extends React.Component {
     this.hexItemsList = Array.from(this.saveHexItemsList);
     this.asciiItemsList = Array.from(this.saveAsciiItemsList);
     let startIndexToUpdate = index; // to use later when updating rowState
-        this.hexItemsList.slice(0, index).reverse().every(item => {
-             if(item.props.gId !== gid){
-                return false;
-             }
-             startIndexToUpdate--;
-             return true;
-        });
+    this.hexItemsList.slice(0, index).reverse().every((item) => {
+      if (item.props.gId !== gid) {
+        return false;
+      }
+      startIndexToUpdate -= 1;
+      return true;
+    });
     let groupFound = false;
     let style = 'item_disabled';
     this.hexItemsList.every((item, i) => {
       if (item.props.gId === gid && gid !== -1) {
-          groupFound = true;
-          if (index === i) {
-              style = 'item_active'
-          } else {
-              style = 'item_part_of_group'
-          }
+        groupFound = true;
+        if (index === i) {
+          style = 'item_active';
+        } else {
+          style = 'item_part_of_group';
+        }
       } else {
-          style = 'item_disabled'
+        style = 'item_disabled';
       }
-      this.updateItemStyle(i, style)
+      this.updateItemStyle(i, style);
       if (groupFound && item.props.gId !== gid) {
-          return false;
+        return false;
       }
       return true;
     });
@@ -212,22 +212,31 @@ class HexColorDisplay extends React.Component {
 
   setItems = (data, buffer) => {
     let gid = 0;
-    data.forEach(item => {
+    data.forEach((item) => {
       let startIndex = item.start;
       if (item.sublist.length > 0) {
+        this.setChunk(
+          buffer.slice(item.start, item.sublist[0].start),
+          item.name,
+          startIndex,
+          gid,
+        );
+        item.sublist.forEach((element) => {
           this.setChunk(
-              buffer.slice(item.start, item.sublist[0].start),
-              item.name, startIndex, gid);
-          item.sublist.forEach(element => {
-              this.setChunk(
-                  buffer.slice(element.start, element.end),
-                  element.name, startIndex, gid);
-              startIndex += element.end;
-          });
+            buffer.slice(element.start, element.end),
+            element.name,
+            startIndex,
+            gid,
+          );
+          startIndex += element.end;
+        });
       } else {
-          this.setChunk(
-              buffer.slice(item.start, item.end),
-              item.name, startIndex, gid);
+        this.setChunk(
+          buffer.slice(item.start, item.end),
+          item.name,
+          startIndex,
+          gid,
+        );
       }
       gid++;
     });
