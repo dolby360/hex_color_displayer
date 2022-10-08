@@ -1,6 +1,7 @@
 import React from 'react';
 import './components/hex.css';
 
+import PropTypes from 'prop-types';
 import Item from './components/item';
 
 function Row(listOfItems, asciiArray, index) {
@@ -54,14 +55,18 @@ class HexColorDisplay extends React.Component {
   // buffer is the binary buffer.
 
   componentDidMount() {
-    const buffer = [];
+    HexColorDisplay.propTypes = {
+      bin: PropTypes.string.isRequired,
+      offsets: PropTypes.number.isRequired,
 
-    this.props.bin.forEach((item) => {
+    };
+    const buffer = [];
+    const { bin, offsets } = this.props;
+    bin.forEach((item) => {
       buffer.push(item);
     });
-    this.setItems(this.props.offsets, buffer);
+    this.setItems(offsets, buffer);
     this.splitItemsList();
-    this.initializationFinished = true;
     this.saveHexItemsList = Array.from(this.hexItemsList);
     this.saveAsciiItemsList = Array.from(this.asciiItemsList);
   }
@@ -124,7 +129,7 @@ class HexColorDisplay extends React.Component {
 
   updateRowState = (startIndexToUpdate) => {
     const rowNumber = Math.floor(startIndexToUpdate / 16);
-    const rowState = this.state.rows;
+    const { rowState } = this.state.rows;
     const resoluton = 100;
     for (let i = 0; i < resoluton; i += 1) {
       const rowNumberToUpdate = ((rowNumber <= (resoluton / 2))
@@ -144,6 +149,7 @@ class HexColorDisplay extends React.Component {
 
   splitItemsList = () => {
     const arr = [];
+    const { rows } = this.state;
     for (let i = 0; i < this.hexItemsList.length; i += 16) {
       const hexArray = this.hexItemsList.slice(i, i + 16);
       const asciiArray = this.asciiItemsList.slice(i, i + 16);
@@ -156,7 +162,7 @@ class HexColorDisplay extends React.Component {
     }
     this.setState({
       rows: arr,
-    }, () => { this.saveState = this.state.rows; });
+    }, () => { this.saveState = rows; });
   };
 
   getItem = (style, iid, gid, byteString, data, index, color, masterGid = null) => (
@@ -238,7 +244,7 @@ class HexColorDisplay extends React.Component {
           gid,
         );
       }
-      gid++;
+      gid += 1;
     });
     const endOfData = data[data.length - 1].end;
     this.setChunk(
@@ -251,10 +257,11 @@ class HexColorDisplay extends React.Component {
 
   render() {
     const Header = title();
+    const { rows } = this.state;
     return (
       <div>
         <ul>{Header}</ul>
-        <ul>{this.state.rows}</ul>
+        <ul>{rows}</ul>
       </div>
     );
   }
