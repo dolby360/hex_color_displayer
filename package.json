@@ -1,8 +1,8 @@
 {
   "name": "hex_color_displayer",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Define chunks of data within a binary file with name and color",
-  "main": "./build/index.js",
+  "main": "./build/index.jsx",
   "scripts": {
     "test": "jest",
     "build": "webpack",
