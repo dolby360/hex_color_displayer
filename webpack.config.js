@@ -2,16 +2,16 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js', // path.join(__dirname, "src", "index.js"),
+  entry: './src/index.jsx', // path.join(__dirname, "src", "index.jsx"),
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    filename: 'index.jsx',
     libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
       {
-        test: /\.?js$/,
+        test: /\.?jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',

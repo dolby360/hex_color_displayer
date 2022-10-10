@@ -20,3 +20,9 @@ const raw = [54, 22, 3, 6, 23, 6, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 // Tests
 // ====================================
 // TODO: I actually don't know how I can test this.
+
+describe("Dummy", () => {
+  test("Dummy", () => {
+    expect(1).toEqual(1);
+  });
+});
