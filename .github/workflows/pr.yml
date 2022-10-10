@@ -14,11 +14,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '16'
-      - run: npm ci --ignore-scripts 
+      - run: npm run 
       - run: npm test
-
       - name: Tests ✅
-
         if: ${{ success() }}
         run: |
           curl --request POST \
@@ -45,6 +43,9 @@ jobs:
             "description": "Tests failed",
             "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           }'
+      - name: Run ESLint
+        run: npm run lint
+
 
   lint-docs:
     runs-on: ubuntu-latest
