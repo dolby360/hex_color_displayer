@@ -53,7 +53,7 @@ export default function Item(props) {
         key={indexInList}
         style={getStyle(myStyle, props)}
         onMouseOver={() => mouseEvent(props)}
-        onFocus={() => 'TODO CHECK WHAT NEEDED TO BE DONE ON FOCUS'}
+        onFocus={() => {}}
       >
         {byteString}
       </li>
