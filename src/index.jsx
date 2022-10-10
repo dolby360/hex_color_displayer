@@ -129,7 +129,8 @@ class HexColorDisplay extends React.Component {
 
   updateRowState = (startIndexToUpdate) => {
     const rowNumber = Math.floor(startIndexToUpdate / 16);
-    const rowState = () => ({ ...this.state }.currentState.rows);
+    const currState = { ...this.state };
+    const rowState = currState.rows;
     const resoluton = 100;
     for (let i = 0; i < resoluton; i += 1) {
       const rowNumberToUpdate = ((rowNumber <= (resoluton / 2))
