@@ -1,69 +1,68 @@
 {
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "contributors": [
-    {
-      "login": "aradbivas",
-      "name": "Arad Bivas",
-      "avatar_url": "https://avatars.githubusercontent.com/u/41302200?v=4",
-      "profile": "https://github.com/aradbivas",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "vov62",
-      "name": "avi vovgen",
-      "avatar_url": "https://avatars.githubusercontent.com/u/71568364?v=4",
-      "profile": "https://github.com/vov62",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "TomDamri1",
-      "name": "Tom",
-      "avatar_url": "https://avatars.githubusercontent.com/u/44465079?v=4",
-      "profile": "https://github.com/TomDamri1",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "Tamir198",
-      "name": "Tamir Abutbul",
-      "avatar_url": "https://avatars.githubusercontent.com/u/34707669?v=4",
-      "profile": "https://www.linkedin.com/in/tamir-abutbul-10a695178/",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "askorutin26",
-      "name": "Artem Elgadzhiev",
-      "avatar_url": "https://avatars.githubusercontent.com/u/66885436?v=4",
-      "profile": "askorutin26@gmail.com",
-      "contributions": [
-        "code"
-      ]
-    },
-    {
-      "login": "EladMotzny",
-      "name": "Elad Motzny",
-      "avatar_url": "https://avatars.githubusercontent.com/u/33173449?v=4",
-      "profile": "https://github.com/EladMotzny",
-      "contributions": [
-        "code"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7,
-  "projectName": "hex_color_displayer",
-  "projectOwner": "dolby360",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "skipCi": true
+    "files": [
+        "README.md"
+    ],
+    "imageSize": 100,
+    "commit": false,
+    "contributors": [{
+            "login": "aradbivas",
+            "name": "Arad Bivas",
+            "avatar_url": "https://avatars.githubusercontent.com/u/41302200?v=4",
+            "profile": "https://github.com/aradbivas",
+            "contributions": [
+                "code"
+            ]
+        },
+        {
+            "login": "vov62",
+            "name": "avi vovgen",
+            "avatar_url": "https://avatars.githubusercontent.com/u/71568364?v=4",
+            "profile": "https://github.com/vov62",
+            "contributions": [
+                "code"
+            ]
+        },
+        {
+            "login": "TomDamri1",
+            "name": "Tom",
+            "avatar_url": "https://avatars.githubusercontent.com/u/44465079?v=4",
+            "profile": "https://github.com/TomDamri1",
+            "contributions": [
+                "code"
+            ]
+        },
+        {
+            "login": "Tamir198",
+            "name": "Tamir Abutbul",
+            "avatar_url": "https://avatars.githubusercontent.com/u/34707669?v=4",
+            "profile": "https://www.linkedin.com/in/tamir-abutbul-10a695178/",
+            "contributions": [
+                "code"
+            ]
+        },
+        {
+            "login": "askorutin26",
+            "name": "Artem Elgadzhiev",
+            "avatar_url": "https://avatars.githubusercontent.com/u/66885436?v=4",
+            "profile": "askorutin26@gmail.com",
+            "contributions": [
+                "code"
+            ]
+        },
+        {
+            "login": "EladMotzny",
+            "name": "Elad Motzny",
+            "avatar_url": "https://avatars.githubusercontent.com/u/33173449?v=4",
+            "profile": "https://github.com/EladMotzny",
+            "contributions": [
+                "code"
+            ]
+        }
+    ],
+    "contributorsPerLine": 7,
+    "projectName": "hex_color_displayer",
+    "projectOwner": "dolby360",
+    "repoType": "github",
+    "repoHost": "https://github.com",
+    "skipCi": true
 }

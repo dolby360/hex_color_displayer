@@ -1,6 +1,7 @@
 import React from 'react';
 import './hex.css';
 import Tippy from '@tippyjs/react';
+import PropTypes from 'prop-types';
 
 const getStyle = (style, props) => {
   const parthOfTheGroupStyle = {
@@ -36,6 +37,13 @@ const mouseEvent = (props) => {
 };
 
 export default function Item(props) {
+  Item.propTypes = {
+    data: PropTypes.string.isRequired,
+    myStyle: PropTypes.number.isRequired,
+    byteString: PropTypes.string.isRequired,
+    indexInList: PropTypes.number.isRequired,
+  };
+
   const {
     data, myStyle, byteString, indexInList,
   } = props;
@@ -45,6 +53,7 @@ export default function Item(props) {
         key={indexInList}
         style={getStyle(myStyle, props)}
         onMouseOver={() => mouseEvent(props)}
+        onFocus={() => {}}
       >
         {byteString}
       </li>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './components/hex.css';
 
+import PropTypes from 'prop-types';
 import Item from './components/item';
 
 function Row(listOfItems, asciiArray, index) {
@@ -54,14 +55,18 @@ class HexColorDisplay extends React.Component {
   // buffer is the binary buffer.
 
   componentDidMount() {
-    const buffer = [];
+    HexColorDisplay.propTypes = {
+      bin: PropTypes.string.isRequired,
+      offsets: PropTypes.number.isRequired,
 
-    this.props.bin.forEach(item => {
-      buffer.push(item)
+    };
+    const buffer = [];
+    const { bin, offsets } = this.props;
+    bin.forEach((item) => {
+      buffer.push(item);
     });
-    this.setItems(this.props.offsets, buffer);
+    this.setItems(offsets, buffer);
     this.splitItemsList();
-    this.initializationFinished = true;
     this.saveHexItemsList = Array.from(this.hexItemsList);
     this.saveAsciiItemsList = Array.from(this.asciiItemsList);
   }
@@ -91,29 +96,29 @@ class HexColorDisplay extends React.Component {
     this.hexItemsList = Array.from(this.saveHexItemsList);
     this.asciiItemsList = Array.from(this.saveAsciiItemsList);
     let startIndexToUpdate = index; // to use later when updating rowState
-        this.hexItemsList.slice(0, index).reverse().every(item => {
-             if(item.props.gId !== gid){
-                return false;
-             }
-             startIndexToUpdate--;
-             return true;
-        });
+    this.hexItemsList.slice(0, index).reverse().every((item) => {
+      if (item.props.gId !== gid) {
+        return false;
+      }
+      startIndexToUpdate -= 1;
+      return true;
+    });
     let groupFound = false;
     let style = 'item_disabled';
     this.hexItemsList.every((item, i) => {
       if (item.props.gId === gid && gid !== -1) {
-          groupFound = true;
-          if (index === i) {
-              style = 'item_active'
-          } else {
-              style = 'item_part_of_group'
-          }
+        groupFound = true;
+        if (index === i) {
+          style = 'item_active';
+        } else {
+          style = 'item_part_of_group';
+        }
       } else {
-          style = 'item_disabled'
+        style = 'item_disabled';
       }
-      this.updateItemStyle(i, style)
+      this.updateItemStyle(i, style);
       if (groupFound && item.props.gId !== gid) {
-          return false;
+        return false;
       }
       return true;
     });
@@ -124,7 +129,8 @@ class HexColorDisplay extends React.Component {
 
   updateRowState = (startIndexToUpdate) => {
     const rowNumber = Math.floor(startIndexToUpdate / 16);
-    const rowState = this.state.rows;
+    const currState = { ...this.state };
+    const rowState = currState.rows;
     const resoluton = 100;
     for (let i = 0; i < resoluton; i += 1) {
       const rowNumberToUpdate = ((rowNumber <= (resoluton / 2))
@@ -144,6 +150,7 @@ class HexColorDisplay extends React.Component {
 
   splitItemsList = () => {
     const arr = [];
+    const { rows } = this.state;
     for (let i = 0; i < this.hexItemsList.length; i += 16) {
       const hexArray = this.hexItemsList.slice(i, i + 16);
       const asciiArray = this.asciiItemsList.slice(i, i + 16);
@@ -156,7 +163,7 @@ class HexColorDisplay extends React.Component {
     }
     this.setState({
       rows: arr,
-    }, () => { this.saveState = this.state.rows; });
+    }, () => { this.saveState = rows; });
   };
 
   getItem = (style, iid, gid, byteString, data, index, color, masterGid = null) => (
@@ -212,24 +219,33 @@ class HexColorDisplay extends React.Component {
 
   setItems = (data, buffer) => {
     let gid = 0;
-    data.forEach(item => {
+    data.forEach((item) => {
       let startIndex = item.start;
       if (item.sublist.length > 0) {
+        this.setChunk(
+          buffer.slice(item.start, item.sublist[0].start),
+          item.name,
+          startIndex,
+          gid,
+        );
+        item.sublist.forEach((element) => {
           this.setChunk(
-              buffer.slice(item.start, item.sublist[0].start),
-              item.name, startIndex, gid);
-          item.sublist.forEach(element => {
-              this.setChunk(
-                  buffer.slice(element.start, element.end),
-                  element.name, startIndex, gid);
-              startIndex += element.end;
-          });
+            buffer.slice(element.start, element.end),
+            element.name,
+            startIndex,
+            gid,
+          );
+          startIndex += element.end;
+        });
       } else {
-          this.setChunk(
-              buffer.slice(item.start, item.end),
-              item.name, startIndex, gid);
+        this.setChunk(
+          buffer.slice(item.start, item.end),
+          item.name,
+          startIndex,
+          gid,
+        );
       }
-      gid++;
+      gid += 1;
     });
     const endOfData = data[data.length - 1].end;
     this.setChunk(
@@ -242,10 +258,11 @@ class HexColorDisplay extends React.Component {
 
   render() {
     const Header = title();
+    const { rows } = this.state;
     return (
       <div>
         <ul>{Header}</ul>
-        <ul>{this.state.rows}</ul>
+        <ul>{rows}</ul>
       </div>
     );
   }
