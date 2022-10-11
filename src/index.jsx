@@ -9,8 +9,7 @@ function Row(listOfItems, asciiArray, index) {
   const hexString = index.toString(16);
   let heading = `${hexString}`;
 
-  heading = pad.substring(0, pad.length - heading.length) + heading;
-  heading += ':';
+  heading = `${pad.substring(0, pad.length - heading.length)} ${heading} :`;
   return (
     <div className="row">
       <div className="heading">
@@ -213,7 +212,7 @@ class HexColorDisplay extends React.Component {
 
   setChunk = (chunk, name, startIndex, gid) => {
     chunk.forEach((item, index) => {
-      this.updateItemInList(startIndex + index, gid, item, name, '', null);
+      this.updateItemInList(`${startIndex} ${index}`, gid, item, name, '', null);
     });
   };
 
