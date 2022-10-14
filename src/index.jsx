@@ -122,8 +122,7 @@ function HexColorDisplay(props) {
 
   const updateRowState = (startIndexToUpdate) => {
     const rowNumber = Math.floor(startIndexToUpdate / 16);
-    const currState = { ...state };
-    const rowState = currState.rows;
+    const rowState = rows;
     const resoluton = 100;
     for (let i = 0; i < resoluton; i += 1) {
       const rowNumberToUpdate = ((rowNumber <= (resoluton / 2))
