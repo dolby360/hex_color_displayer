@@ -9,8 +9,7 @@ function Row(listOfItems, asciiArray, index) {
   const hexString = index.toString(16);
   let heading = `${hexString}`;
 
-  heading = pad.substring(0, pad.length - heading.length) + heading;
-  heading += ':';
+  heading = `${pad.substring(0, pad.length - heading.length)} ${heading} :`;
   return (
     <div className="row">
       <div className="heading">
