@@ -223,7 +223,7 @@ const HexColorDisplay = (props) => {
 
   const setChunk = (chunk, name, startIndex, gid) => {
     chunk.forEach((item, index) => {
-      updateItemInList(`${startIndex} ${index}`, gid, item, name, '', null);
+      this.updateItemInList(`${startIndex} ${index}`, gid, item, name, '', null);
     });
   };
 
