@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import {React, useState, useEffect} from 'react';
 import './components/hex.css';
 
 import PropTypes from 'prop-types';
@@ -35,17 +35,22 @@ const title = () => {
   );
 };
 
-function HexColorDisplay(props) {
+const HexColorDisplay = (props) => {
   const [rows, setrows] = useState([]);
+  const [startIndexToUpdate, setstartIndexToUpdate] = useState(1);
+  const [saveState, setSaveState] = useState(rows)
+  
+    let hexItemsList = [];
+    let asciiItemsList = [];
+    let saveHexItemsList = [];
+    let saveAsciiItemsList = [];
 
-  let hexItemsList = [];
-  let asciiItemsList = [];
-  let saveState = [];
-  let saveHexItemsList = [];
-  let saveAsciiItemsList = [];
+
+  // used as a callback in item to update all other items
 
   // data is json struct that folds all offsets data.
   // buffer is the binary buffer.
+
   useEffect(() => {
     HexColorDisplay.propTypes = {
       bin: PropTypes.string.isRequired,
@@ -54,16 +59,22 @@ function HexColorDisplay(props) {
 
     const buffer = [];
     const { bin, offsets } = props;
-
     bin.forEach((item) => {
       buffer.push(item);
     });
-
     setItems(offsets, buffer);
     splitItemsList();
     saveHexItemsList = Array.from(hexItemsList);
     saveAsciiItemsList = Array.from(asciiItemsList);
-  }, [rows]);
+  }, []);
+
+  useEffect(() => {
+    updateRowState(startIndexToUpdate);
+  }),[startIndexToUpdate];
+
+  useEffect(()=>{
+    setSaveState(rows);
+  },[rows])
 
   const updateItemStyle = (index, style) => {
     hexItemsList[index] = getItem(
@@ -85,6 +96,7 @@ function HexColorDisplay(props) {
       asciiItemsList[index].props.color,
     );
   };
+  
 
   const updateItems = (index, gid) => {
     hexItemsList = Array.from(saveHexItemsList);
@@ -116,11 +128,17 @@ function HexColorDisplay(props) {
       }
       return true;
     });
-    setrows(saveState, () => updateRowState(startIndexToUpdate));
+
+    setrows(saveState);
+    setstartIndexToUpdate(startIndexToUpdate)
+    // setState({
+    //   rows: saveState,
+    // }, () => updateRowState(startIndexToUpdate));
   };
 
   const updateRowState = (startIndexToUpdate) => {
-    const rowNumber = Math.floor(startIndexToUpdate / 16);
+    debugger
+    let rowNumber = Math.floor(startIndexToUpdate / 16);
     const rowState = rows;
     const resoluton = 100;
     for (let i = 0; i < resoluton; i += 1) {
@@ -134,6 +152,7 @@ function HexColorDisplay(props) {
       const asciiArray = asciiItemsList.slice(startIndex, startIndex + 16);
       rowState[rowNumberToUpdate] = Row(hexArray, asciiArray, startIndex);
     }
+
     setrows(rowState);
   };
 
@@ -149,7 +168,12 @@ function HexColorDisplay(props) {
       }
       arr.push(Row(hexArray, asciiArray, i));
     }
-    setrows(arr, () => { saveState = rows; });
+
+    setrows(arr);
+    // setSaveState(rows)
+    // setState({
+    //   rows: arr,
+    // }, () => { saveState = rows; });
   };
 
   const getItem = (style, iid, gid, byteString, data, index, color, masterGid = null) => (
@@ -242,13 +266,13 @@ function HexColorDisplay(props) {
     );
   };
 
-  const Header = title();
-  return (
-    <div>
-      <ul>{Header}</ul>
-      <ul>{rows}</ul>
-    </div>
-  );
+    const Header = title();
+    return (
+      <div>
+        <ul>{Header}</ul>
+        <ul>{rows}</ul>
+      </div>
+    );
 }
 
 export default HexColorDisplay;
