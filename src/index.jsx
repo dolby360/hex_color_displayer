@@ -3,6 +3,7 @@ import './components/hex.css';
 
 import PropTypes from 'prop-types';
 import Item from './components/item';
+import { spllitArray } from './array_splitter';
 
 function Row(listOfItems, asciiArray, index) {
   const pad = '000000';
@@ -36,9 +37,12 @@ const title = () => {
 };
 
 const HexColorDisplay = ({
-  bin, offsets
+  rawData, offsets
 }) => {
   const Header = title();
+
+  splited = spllitArray(rawData, offsets);
+
   return (
     <div>
       <ul>{Header}</ul>
