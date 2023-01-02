@@ -24,6 +24,10 @@ const getTotalLenOfRow = (arr) =>{
 export function spllitArray(rawData, offsets){
     let splitt = [];
     let amountOfItems = 0;
+    /* The first step is to slice the list of numbers into groups, 
+     * without considering the rows. This means that each slice will be the 
+     * length of the group, rather than 16 as a row.
+    */
     for(let i of offsets){
         splitt.push(rawData.slice(i.start, i.end));
         amountOfItems = i.end;
@@ -43,17 +47,43 @@ export function spllitArray(rawData, offsets){
             rowNumber+=1
         }else{
             while(item.length > 0){
-                fit = item.slice(0, 16-rowLen)
-                item = item.slice(16-rowLen)
+                let fit = item.slice(0, 16 - rowLen);
+                item = item.slice(16 - rowLen);
                 ret[rowNumber].push(fit);
                 
                 if(getTotalLenOfRow(ret[rowNumber])==16){
                     rowNumber+=1
                 }
-                rowLen=item.length;
+                rowLen=0;
             }
         }
     }
     return ret;
 }
 
+const addTupleToDict = (dict, key, tuple) => {
+    if(Object.hasOwn(dict, key) ){
+        dict[key].push(tuple);
+    }else{
+        dict[key] = [tuple]
+    }
+}
+
+export function getMap(splited, offsets){
+    let offsetInd = 0;
+    let len = 0
+    let groups = {}
+    let lastEnd = 0;
+    for (let i = 0; i < splited.length; i++) {
+        for (let j = 0; j < splited[i].length; j++) {
+            len += splited[i][j].length;
+            addTupleToDict(groups, offsetInd, [i, j]);
+            if (len + lastEnd >= offsets[offsetInd].end){
+                len = 0;
+                lastEnd = offsets[offsetInd].end
+                offsetInd++;
+            }
+        }
+    }
+    return groups;
+}

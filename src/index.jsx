@@ -3,7 +3,7 @@ import './components/hex.css';
 
 import PropTypes from 'prop-types';
 import Item from './components/item';
-import { spllitArray } from './array_splitter';
+import { spllitArray, getMap } from './array_splitter';
 
 function Row(listOfItems, asciiArray, index) {
   const pad = '000000';
@@ -36,16 +36,64 @@ const title = () => {
   );
 };
 
+const createRows = (splited, mapOfgroups, offsets) => {
+  let rows = []
+  let row = []
+  let asciiRow = []
+  let len = 0;
+  let numOfRows = 0;
+  for(let k in mapOfgroups){
+    let v = mapOfgroups[k];
+    // Go over all arrays that belong to this group
+    // I is a tuple of [row, column]
+    for(let i of v){
+      if (len < 16){
+        let rowNumber = i[0]
+        let subArray = i[1]
+        len += splited[rowNumber][subArray].length;
+        let iter = splited[rowNumber][subArray];
+        for(let ind = 0; ind < iter.length; ind++){
+          let num = iter[ind];
+          const c = num < 127 && num > 31
+            ? String.fromCharCode(num) : '.';
+          row.push(
+            <Item
+              data={offsets[k].name}
+              myStayle={'item_disabled'}
+              byteString={num.toString(16)}
+            />)
+          asciiRow.push(
+            <Item
+              data={offsets[k].name}
+              myStayle={'item_disabled'}
+              byteString={c}
+            />)
+        }
+      }else{
+        rows.push(Row(row, asciiRow, numOfRows))
+        row = [];
+        asciiRow = [];
+        len = 0;
+        numOfRows++;
+      }
+    }
+  }
+  return rows;
+}
+
 const HexColorDisplay = ({
   rawData, offsets
 }) => {
   const Header = title();
 
-  splited = spllitArray(rawData, offsets);
-
+  let splited = spllitArray(rawData, offsets);
+  let mapOfgroups = getMap(splited, offsets);
+  let rows = createRows(splited, mapOfgroups, offsets);
+  
   return (
     <div>
       <ul>{Header}</ul>
+      <ul>{rows}</ul>
     </div>
   );
 }

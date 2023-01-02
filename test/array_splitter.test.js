@@ -13,4 +13,15 @@ describe("Test array splitter", () => {
       ]
     );
   });
+  test("get map of splitted array", () => {
+    let splited = as.spllitArray(raw, dataExample);
+    let ret = as.getMap(splited, dataExample);
+    expect(ret).toEqual(
+      {
+        0: [[0,0]], 1: [[0,1],[1,0]], 2: [[1,1]], 3: [[1,2],[2,0],[3,0]]
+      }
+    );
+  });
 });
+
+
