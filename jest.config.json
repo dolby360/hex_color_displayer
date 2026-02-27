@@ -1,6 +1,7 @@
 {
   "testEnvironment": "jsdom",
   "verbose": false,
+  "setupFilesAfterEnv": ["<rootDir>/test/setup.js"],
   "moduleFileExtensions": [
     "js",
     "jsx"
