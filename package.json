@@ -1,6 +1,6 @@
 {
   "name": "hex_color_displayer",
-  "version": "1.4.3",
+  "version": "2.0.0",
   "description": "Define chunks of data within a binary file with name and color",
   "main": "./build/index.jsx",
   "scripts": {
@@ -31,6 +31,7 @@
     "@storybook/manager-webpack5": "^6.4.0-alpha.35",
     "@storybook/react": "^6.4.0-alpha.35",
     "@tippyjs/react": "^4.2.6",
+    "ajv": "^8.18.0",
     "babel-loader": "^8.2.2",
     "buffer": "^6.0.3",
     "prop-types": "^15.8.1",

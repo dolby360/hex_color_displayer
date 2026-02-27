@@ -23,6 +23,9 @@ module.exports = {
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+  },
   externals: {
     react: 'commonjs react',
     'react-dom': 'commonjs react-dom',
